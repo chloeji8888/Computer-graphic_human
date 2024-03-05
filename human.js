@@ -119,20 +119,20 @@ class Articulated_Human {
         }
 
         // TODO: Implement your Jacobian here
-        const delta = 0.001;
+        const dt = 0.001;
         const curr_end_effector_pos = this.get_end_effector_position();
 
         for (let i = 0; i < this.dof; i++) {
-        this.theta[i] = this.theta[i] + delta;
+        this.theta[i] = this.theta[i] + dt;
         this.apply_theta();
 
-        let n_end_effector_pos = this.get_end_effector_position();
+        let n_end_pos = this.get_end_effector_position();
 
-        J[0][i] = (n_end_effector_pos[0] - curr_end_effector_pos[0]) / delta;
-        J[1][i] = (n_end_effector_pos[1] - curr_end_effector_pos[1]) / delta;
-        J[2][i] = (n_end_effector_pos[2] - curr_end_effector_pos[2]) / delta;
+        J[0][i] = (n_end_pos[0] - curr_end_effector_pos[0]) / dt;
+        J[1][i] = (n_end_pos[1] - curr_end_effector_pos[1]) / dt;
+        J[2][i] = (n_end_pos[2] - curr_end_effector_pos[2]) / dt;
 
-        this.theta[i] = this.theta[i] - delta;
+        this.theta[i] = this.theta[i] - dt;
         this.apply_theta();
     }
         // console.log(J)
