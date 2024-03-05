@@ -136,7 +136,7 @@ const Assignment2_base = defs.Assignment2_base =
         // Calculate the next simulation time
         const t_next = this.t_sim + dt;
         
-        const t_step = 1 / 10000;
+        const t_step = 1 / 55500;
         
         // let time = 0;
         
