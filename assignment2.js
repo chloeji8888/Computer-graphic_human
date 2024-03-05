@@ -202,7 +202,7 @@ export class Assignment2 extends Assignment2_base
     const t = this.t = this.uniforms.animation_time/1000;
 
     // !!! Draw ground
-    let floor_transform = Mat4.translation(0, 0, 0).times(Mat4.scale(10, 0.01, 10));
+    let floor_transform = Mat4.translation(0, -3, 0).times(Mat4.scale(10, 0.01, 10));
     this.shapes.box.draw( caller, this.uniforms, floor_transform, { ...this.materials.plastic, color: yellow } );
 
     // TODO: you should draw scene here.
